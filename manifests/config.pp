@@ -1,10 +1,7 @@
 # == Class: statsd::config
 class statsd::config (
-  $configfile  = $statsd::configfile,
-  $logfile     = $statsd::logfile,
   $statsjs     = "${statsd::node_module_dir}/statsd/stats.js",
-  $nodejs_bin  = $statsd::nodejs_bin
-) {
+) inherits statsd {
 
   file { '/etc/statsd':
     ensure => directory,
